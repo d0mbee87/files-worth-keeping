@@ -1,0 +1,43 @@
+change this in:
+etc/network/interfaces
+
+auto wlan
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+etc/wpa_supplicant/wpa_supplicant.conf
+
+network={
+  ssid="mynetwork"
+  psk="mypassword"
+  proto=RSN
+  key_mgmt=WPA-PSK
+  pairwise=CCMP
+  auth_alg=OPEN
+}
+
+make one blank file named ssh in boot partition
+
+connect with:
+ssh pi@raspberrypi.local
+
+sudo raspi-config
+(expand filesystem)
+sudo reboot
+
+curl -SLs https://apt.adafruit.com/add-pin | sudo bash
+sudo apt-get install -y raspberrypi-bootloader adafruit-pitft-helper raspberrypi-kernel
+
+sudo adafruit-pitft-helper -t 35r
+
+OR just add the overlay
+
+device_tree=bcm2708-rpi-0-w.dtb
+[all]
+dtparam=spi=on
+dtparam=i2c1=on
+dtparam=i2c_arm=on
+dtoverlay=pitft28-resistive,rotate=90,speed=32000000,fps=20
+
+sudo reboot
