@@ -7,7 +7,7 @@ set showcmd
 set laststatus=2
 set confirm
 set visualbell
-" "press <Enter> to continue"
+
 set cmdheight=2
 
 set clipboard=unnamed
