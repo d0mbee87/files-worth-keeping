@@ -10,7 +10,7 @@ set visualbell
 
 set cmdheight=2
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 set history=500
 
