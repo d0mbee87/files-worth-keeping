@@ -154,12 +154,14 @@ endfunction
 
 "todo list binds
 "========================================
+"create template
+nnoremap <leader>t i"    IMPORTANT<cr>""""""""""""""""""""""""""""""""<cr><cr><cr>" TODO<cr>""""""""""""""""""""""""""""""""<cr><cr><cr>" DONE<cr>""""""""""""""""""""""""""""""""<cr><esc>
 "marks an empty item done
 nnoremap <leader>d 0/]<cr>ci]x<esc>$kmbjddGp'b
 "marks important item not important
 nnoremap <leader>u 0/[!]<cr>r dd}p 
 "makes a new item
-nnoremap <leader>n o [ ] <esc>a
+nnoremap <leader>n o<esc>0i [ ] <esc>a
 "clear a marked done item
 nnoremap <leader>c 0/[x]<cr>r $ddgg}}p$
 "marks item important
